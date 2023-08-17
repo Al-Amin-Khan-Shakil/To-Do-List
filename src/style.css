@@ -5,5 +5,20 @@
 }
 
 body {
-  background: #b7f3ff;
+  background: url('https://images.pexels.com/photos/2457278/pexels-photo-2457278.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#main-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, #f273e599, #6ab3fc99);
+}
+
+.form-wrapper {
+  display: flex;
 }

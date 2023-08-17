@@ -9,3 +9,5 @@ addBtn.addEventListener('click', (e) => {
   Task.setToLocal();
   Task.createTaskList();
 });
+
+window.addEventListener('load', Task.createTaskList)
