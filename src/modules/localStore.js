@@ -1,8 +1,9 @@
-import Task from "./taskclass.js";
+/* eslint-disable */
+import Task from './taskclass.js';
 
 export const setToLocal = () => {
   localStorage.setItem('taskCollection', JSON.stringify(Task.taskData));
-}
+};
 
 export const getFromLocal = () => {
   const getData = localStorage.getItem('taskCollection');
@@ -10,4 +11,4 @@ export const getFromLocal = () => {
   if (getData) {
     Task.taskData = JSON.parse(getData);
   }
-}
+};

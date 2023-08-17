@@ -1,5 +1,6 @@
-import Task from "./taskclass.js";
-import { inputTask } from "./variables.js";
+/* eslint-disable */
+import Task from './taskclass.js';
+import { inputTask } from './variables.js';
 
 const addTask = () => {
   const taskValue = inputTask.value.trim();
@@ -10,6 +11,6 @@ const addTask = () => {
   }
 
   document.getElementById('input-task').value = '';
-}
+};
 
 export default addTask;

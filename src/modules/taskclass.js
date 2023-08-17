@@ -1,6 +1,7 @@
-import addTask from "./addTask.js";
-import { setToLocal, getFromLocal } from "./localStore.js";
-import createTaskList from "./createList.js";
+/* eslint-disable */
+import addTask from './addTask.js';
+import { setToLocal, getFromLocal } from './localStore.js';
+import createTaskList from './createList.js';
 
 export default class Task {
   constructor(index, description) {
@@ -12,8 +13,10 @@ export default class Task {
   static taskData = [];
 
   static addTask = addTask;
-  static setToLocal = setToLocal;
-  static getFromLocal = getFromLocal;
-  static createTaskList = createTaskList;
 
+  static setToLocal = setToLocal;
+
+  static getFromLocal = getFromLocal;
+
+  static createTaskList = createTaskList;
 }

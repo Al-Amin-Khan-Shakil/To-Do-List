@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import './style.css';
 import { addBtn } from './modules/variables.js';
 import Task from './modules/taskclass.js';
@@ -10,4 +9,4 @@ addBtn.addEventListener('click', (e) => {
   Task.createTaskList();
 });
 
-window.addEventListener('load', Task.createTaskList)
+window.addEventListener('load', Task.createTaskList);
