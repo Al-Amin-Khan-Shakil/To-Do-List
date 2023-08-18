@@ -1,4 +1,5 @@
 import './style.css';
+
 const inputTask = document.getElementById('input-task');
 const addBtn = document.getElementById('add-btn');
 const taskList = document.getElementById('task-list');
@@ -14,12 +15,12 @@ class Task {
 
   static addTask = () => {
     const taskValue = inputTask.value.trim();
-  
+
     if (taskValue) {
       const newTask = new Task((this.taskData.length + 1), taskValue);
       this.taskData.push(newTask);
     }
-  
+
     document.getElementById('input-task').value = '';
   };
 
@@ -29,7 +30,7 @@ class Task {
 
   static getFromLocal = () => {
     const getData = localStorage.getItem('taskCollection');
-  
+
     if (getData) {
       this.taskData = JSON.parse(getData);
     }
@@ -58,19 +59,20 @@ class Task {
       delBtn.dataset.index = task.index;
       delBtn.classList.add('del-btn');
       li.appendChild(delBtn);
-  
+
       taskList.appendChild(li);
     });
   };
 
   static updateIndex = () => {
-    this.taskData.forEach((task, i) => task.index = i + 1);
+    this.taskData.forEach((task, i) => {
+      task.index = i + 1;
+    });
   }
 
   static deleteTask = (index) => {
     this.taskData.splice(index, 1);
   };
-
 }
 
 addBtn.addEventListener('click', (e) => {
@@ -78,17 +80,17 @@ addBtn.addEventListener('click', (e) => {
   Task.addTask();
   Task.setToLocal();
   Task.createTaskList();
-  console.log('check the error');
 });
 
 taskList.addEventListener('click', (e) => {
   if (e.target.classList.contains('del-btn')) {
-    const index = parseInt(e.target.dataset.index);
-    Task.deleteTask(index - 1);
+    const getIndex = parseInt(e.target.dataset.index, 10);
+    const index = getIndex - 1;
+    Task.deleteTask(index);
     Task.updateIndex();
     Task.setToLocal();
     Task.createTaskList();
-  };
+  }
 });
 
 window.addEventListener('load', () => {
