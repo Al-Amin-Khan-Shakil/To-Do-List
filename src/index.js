@@ -4,7 +4,7 @@ const inputTask = document.getElementById('input-task');
 const addBtn = document.getElementById('add-btn');
 const taskList = document.getElementById('task-list');
 
-class Task {
+export default class Task {
   constructor(index, description) {
     this.index = index;
     this.description = description;
@@ -74,6 +74,24 @@ class Task {
   static deleteTask = (index) => {
     this.taskData.splice(index, 1);
   };
+
+  static textDecoration = () => {
+    const textElement = document.querySelectorAll('.task-text');
+    textElement.forEach((text) => {
+      const index = parseInt(text.dataset.index, 10) - 1;
+      if (this.taskData[index].completed) {
+        text.style.textDecoration = 'line-through';
+      } else {
+        text.style.textDecoration = 'none';
+      }
+    });
+  };
+
+  static toggleCheckbox = (index) => {
+    this.taskData[index].completed = !this.taskData[index].completed;
+    this.setToLocal();
+    this.createTaskList();
+  }
 }
 
 addBtn.addEventListener('click', (e) => {
@@ -110,6 +128,14 @@ taskList.addEventListener('focusout', (e) => {
     Task.setToLocal();
     e.target.blur();
     e.target.contentEditable = false;
+  }
+});
+
+taskList.addEventListener('change', (e) => {
+  if (e.target.classList.contains('checkbox')) {
+    const index = parseInt(e.target.dataset.index, 10) - 1;
+    Task.toggleCheckbox(index);
+    Task.textDecoration();
   }
 });
 
