@@ -1,4 +1,3 @@
-/* eslint-disable */
 import './style.css';
 import { textDecoration, toggleCheckbox, clearCompletedTask } from './modules/app.js';
 
@@ -77,12 +76,6 @@ export default class Task {
   static deleteTask = (index) => {
     this.taskData.splice(index, 1);
   };
-
-  static textDecoration = textDecoration;
-
-  static toggleCheckbox = toggleCheckbox;
-
-  static clearCompletedTask = clearCompletedTask;
 }
 
 addBtn.addEventListener('click', (e) => {
@@ -125,13 +118,14 @@ taskList.addEventListener('focusout', (e) => {
 taskList.addEventListener('change', (e) => {
   if (e.target.classList.contains('checkbox')) {
     const index = parseInt(e.target.dataset.index, 10) - 1;
-    Task.toggleCheckbox(index);
-    Task.textDecoration();
+    toggleCheckbox(index, Task.taskData, Task.setToLocal, Task.createTaskList);
+    textDecoration(Task.taskData);
   }
 });
 
 clearBtn.addEventListener('click', () => {
-  Task.clearCompletedTask();
+  Task.taskData = clearCompletedTask(Task.taskData);
+  Task.updateIndex();
   Task.setToLocal();
   Task.createTaskList();
 });
