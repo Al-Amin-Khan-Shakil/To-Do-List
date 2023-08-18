@@ -83,7 +83,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone git@github.com:Al-Amin-Khan-Shakil/Favorite-Books.git
+  git clone git@github.com:Al-Amin-Khan-Shakil/To-Do-List.git
 ```
 
 ### Install
@@ -135,8 +135,8 @@ You can deploy this project using:
 👤 **Al Amin Khan Shakil**
 
 - GitHub: [Al Amin Khan Shakil](https://github.com/Al-Amin-Khan-Shakil)
-- Twitter: [Al Amin Khan Shakil](https://https://twitter.com/AlAminKhan85004)
-- LinkedIn: [Al Amin Khan Shakil](https://https://www.linkedin.com/in/al-amin-khan-shakil-5a3b29252/)
+- Twitter: [Al Amin Khan Shakil](https://twitter.com/AlAminKhan85004)
+- LinkedIn: [Al Amin Khan Shakil](https://www.linkedin.com/in/al-amin-khan-shakil-5a3b29252/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
