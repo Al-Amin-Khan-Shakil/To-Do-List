@@ -1,10 +1,13 @@
+/* eslint-disable */
 import './style.css';
+import { textDecoration, toggleCheckbox, clearCompletedTask } from './modules/app.js';
 
 const inputTask = document.getElementById('input-task');
 const addBtn = document.getElementById('add-btn');
 const taskList = document.getElementById('task-list');
+const clearBtn = document.getElementById('clear-button');
 
-class Task {
+export default class Task {
   constructor(index, description) {
     this.index = index;
     this.description = description;
@@ -74,6 +77,12 @@ class Task {
   static deleteTask = (index) => {
     this.taskData.splice(index, 1);
   };
+
+  static textDecoration = textDecoration;
+
+  static toggleCheckbox = toggleCheckbox;
+
+  static clearCompletedTask = clearCompletedTask;
 }
 
 addBtn.addEventListener('click', (e) => {
@@ -111,6 +120,20 @@ taskList.addEventListener('focusout', (e) => {
     e.target.blur();
     e.target.contentEditable = false;
   }
+});
+
+taskList.addEventListener('change', (e) => {
+  if (e.target.classList.contains('checkbox')) {
+    const index = parseInt(e.target.dataset.index, 10) - 1;
+    Task.toggleCheckbox(index);
+    Task.textDecoration();
+  }
+});
+
+clearBtn.addEventListener('click', () => {
+  Task.clearCompletedTask();
+  Task.setToLocal();
+  Task.createTaskList();
 });
 
 window.addEventListener('load', () => {
