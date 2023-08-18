@@ -1,10 +1,12 @@
 import './style.css';
+import { textDecoration, toggleCheckbox, clearCompletedTask } from './modules/app.js';
 
 const inputTask = document.getElementById('input-task');
 const addBtn = document.getElementById('add-btn');
 const taskList = document.getElementById('task-list');
+const clearBtn = document.getElementById('clear-button');
 
-class Task {
+export default class Task {
   constructor(index, description) {
     this.index = index;
     this.description = description;
@@ -111,6 +113,21 @@ taskList.addEventListener('focusout', (e) => {
     e.target.blur();
     e.target.contentEditable = false;
   }
+});
+
+taskList.addEventListener('change', (e) => {
+  if (e.target.classList.contains('checkbox')) {
+    const index = parseInt(e.target.dataset.index, 10) - 1;
+    toggleCheckbox(index, Task.taskData, Task.setToLocal, Task.createTaskList);
+    textDecoration(Task.taskData);
+  }
+});
+
+clearBtn.addEventListener('click', () => {
+  Task.taskData = clearCompletedTask(Task.taskData);
+  Task.updateIndex();
+  Task.setToLocal();
+  Task.createTaskList();
 });
 
 window.addEventListener('load', () => {
