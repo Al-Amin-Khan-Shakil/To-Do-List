@@ -53,6 +53,7 @@ class Task {
       const taskText = document.createElement('span');
       taskText.classList.add('task-text');
       taskText.textContent = task.description;
+      taskText.dataset.index = task.index;
       li.appendChild(taskText);
 
       const delBtn = document.createElement('button');
@@ -90,6 +91,23 @@ taskList.addEventListener('click', (e) => {
     Task.updateIndex();
     Task.setToLocal();
     Task.createTaskList();
+  }
+});
+
+taskList.addEventListener('dblclick', (e) => {
+  if (e.target.classList.contains('task-text')) {
+    if (!e.target.isContentEditable) {
+      e.target.contentEditable = true;
+      e.target.focus();
+    }
+  }
+});
+
+taskList.addEventListener('focusout', (e) => {
+  if (e.target.classList.contains('task-text')) {
+    const index = parseInt(e.target.dataset.index, 10) - 1;
+    Task.taskData[index].description = e.target.textContent.trim();
+    Task.setToLocal();
   }
 });
 
