@@ -105,7 +105,7 @@ body {
   align-items: center;
   column-gap: 10px;
   width: 100%;
-  padding: 8px 16px;
+  padding: 0 16px;
   background: #cbebfad2;
   border-bottom: 1.5px solid #d1cfcfcc;
 }
@@ -116,6 +116,12 @@ body {
 
 .task-text {
   flex: 1;
+  outline: none;
+  padding: 8px 0;
+}
+
+.list-item:focus-within {
+  background: #f9ffac;
 }
 
 .list-item button {

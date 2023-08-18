@@ -108,6 +108,8 @@ taskList.addEventListener('focusout', (e) => {
     const index = parseInt(e.target.dataset.index, 10) - 1;
     Task.taskData[index].description = e.target.textContent.trim();
     Task.setToLocal();
+    e.target.blur();
+    e.target.contentEditable = false;
   }
 });
 
