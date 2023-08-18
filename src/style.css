@@ -12,6 +12,7 @@ body {
   background: url('https://images.pexels.com/photos/2457278/pexels-photo-2457278.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat;
   background-size: cover;
   background-position: center center;
+  overflow-x: hidden;
 }
 
 #main-section {
@@ -19,8 +20,8 @@ body {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
-  background: linear-gradient(45deg, #fc63eddf, #6db2f8d8);
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6db3f8ee, #fc63edee);
 }
 
 .form-wrapper {

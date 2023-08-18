@@ -1,8 +1,11 @@
+/* eslint-disable */
 import './style.css';
+import { textDecoration, toggleCheckbox, clearCompletedTask } from './modules/app.js';
 
 const inputTask = document.getElementById('input-task');
 const addBtn = document.getElementById('add-btn');
 const taskList = document.getElementById('task-list');
+const clearBtn = document.getElementById('clear-button');
 
 export default class Task {
   constructor(index, description) {
@@ -75,23 +78,11 @@ export default class Task {
     this.taskData.splice(index, 1);
   };
 
-  static textDecoration = () => {
-    const textElement = document.querySelectorAll('.task-text');
-    textElement.forEach((text) => {
-      const index = parseInt(text.dataset.index, 10) - 1;
-      if (this.taskData[index].completed) {
-        text.style.textDecoration = 'line-through';
-      } else {
-        text.style.textDecoration = 'none';
-      }
-    });
-  };
+  static textDecoration = textDecoration;
 
-  static toggleCheckbox = (index) => {
-    this.taskData[index].completed = !this.taskData[index].completed;
-    this.setToLocal();
-    this.createTaskList();
-  }
+  static toggleCheckbox = toggleCheckbox;
+
+  static clearCompletedTask = clearCompletedTask;
 }
 
 addBtn.addEventListener('click', (e) => {
@@ -137,6 +128,12 @@ taskList.addEventListener('change', (e) => {
     Task.toggleCheckbox(index);
     Task.textDecoration();
   }
+});
+
+clearBtn.addEventListener('click', () => {
+  Task.clearCompletedTask();
+  Task.setToLocal();
+  Task.createTaskList();
 });
 
 window.addEventListener('load', () => {
