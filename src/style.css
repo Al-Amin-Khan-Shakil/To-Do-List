@@ -126,7 +126,7 @@ body {
 }
 
 .list-item button {
-  background: url(../image/icons8-trash-24.png) no-repeat;
+  background: grey;
   background-size: contain;
   border: none;
   cursor: pointer;
