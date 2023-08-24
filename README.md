@@ -138,6 +138,12 @@ You can deploy this project using:
 - Twitter: [Al Amin Khan Shakil](https://twitter.com/AlAminKhan85004)
 - LinkedIn: [Al Amin Khan Shakil](https://www.linkedin.com/in/al-amin-khan-shakil-5a3b29252/)
 
+👤 **Lucy W. Mwangi**
+
+- GitHub: [@lucy-sees](https://github.com/lucy-sees)
+- Twitter: [@\_The_LoneWolf](https://twitter.com/_The_LoneWolf)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/lucy-w-mwangi-83a31b11b/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
